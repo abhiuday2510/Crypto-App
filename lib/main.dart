@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_crypto/homePage.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,12 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'Live Prices',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-        ),
+        body: LivePage(),
       ),
     );
   }
