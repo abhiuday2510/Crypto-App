@@ -11,6 +11,8 @@ class LivePage extends StatefulWidget {
 class _LivePageState extends State<LivePage> {
   @override
   Widget build(BuildContext context) {
+    //final isKeyboard=MediaQuery.of(context).viewInsets.bottom!=0;  checks if the keyboard is open or not
+
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -117,17 +119,40 @@ class _LivePageState extends State<LivePage> {
                 ],
               ),
             ),
-            Container(
-                height: 60,
-                padding: EdgeInsets.fromLTRB(15, 0, 18, 0),
-                child: Column(
-                  children: [
-                    kBlock(),
-                    kBlock(),
-                    kBlock(),
-                    kBlock(),
-                  ],
-                )),
+            // Container(
+            //     height: 60,
+            //     padding: EdgeInsets.fromLTRB(15, 0, 18, 0),
+            //     child: Column(
+            //         //scrollDirection: Axis.vertical,
+            //         //shrinkWrap: true,
+            //         children: [
+            //           kBlock('Bitcoin'),
+            //           kBlock('litecoin'),
+            //           // kBlock(),
+            //           // kBlock(),
+            //         ])),
+            ListView(
+              padding: EdgeInsets.fromLTRB(15, 0, 18, 0),
+              shrinkWrap: true,
+              children: [
+                kBlock(
+                    coinType: 'Bitcoin',
+                    logo: AssetImage('images/bitcoin.png'),
+                    abbriviation: 'BTC'),
+                kBlock(
+                    coinType: 'Ethereum',
+                    logo: AssetImage('images/ethereum.png'),
+                    abbriviation: 'ETH'),
+                kBlock(
+                    coinType: 'Litecoin',
+                    logo: AssetImage('images/litecoin.gif'),
+                    abbriviation: 'LTC'),
+                kBlock(
+                    coinType: 'Doge Coin',
+                    logo: AssetImage('images/dodegcoin.jpg'),
+                    abbriviation: 'DOGe'),
+              ],
+            )
           ],
         ),
       ),

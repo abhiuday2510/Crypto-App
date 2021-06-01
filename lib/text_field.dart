@@ -17,6 +17,10 @@ class _MyTextFieldState extends State<MyTextField> {
           filled: true,
           fillColor: Colors.grey.shade100,
           //focusColor: Colors.grey,
+          focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.all(Radius.circular(5)),
+          ),
           enabledBorder: OutlineInputBorder(
             //borderSide: BorderSide.none,
             borderSide: BorderSide(color: Colors.grey.shade300, width: 2),

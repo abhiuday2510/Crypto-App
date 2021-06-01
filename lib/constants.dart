@@ -25,14 +25,19 @@ Column kcoinNwatchlist(
   );
 }
 
-Column kBlock() {
+Column kBlock({String coinType, AssetImage logo, String abbriviation}) {
   return Column(
     children: [
       Container(
         height: 1,
         color: Colors.grey,
       ),
-      Container(
+      SizedBox(
+        height: 5,
+      ),
+      Card(
+        margin: EdgeInsets.all(0),
+        elevation: 0,
         child: Row(
           children: [
             Expanded(
@@ -41,7 +46,7 @@ Column kBlock() {
                   height: 50,
                   child: CircleAvatar(
                     radius: 1,
-                    backgroundImage: AssetImage('images/bitcoin.png'),
+                    backgroundImage: logo,
                   ),
                 )),
             SizedBox(
@@ -59,7 +64,7 @@ Column kBlock() {
                     Container(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        'Bitcoin',
+                        coinType,
                         style: TextStyle(
                             fontWeight: FontWeight.w600, fontSize: 18),
                       ),
@@ -70,7 +75,7 @@ Column kBlock() {
                     Container(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        'BTC',
+                        abbriviation,
                         style: TextStyle(
                             color: Colors.grey.shade600,
                             fontSize: 15,
@@ -97,8 +102,8 @@ Column kBlock() {
         ),
       ),
       SizedBox(
-        height: 10,
-      )
+        height: 5,
+      ),
     ],
   );
 }
