@@ -118,10 +118,16 @@ class _LivePageState extends State<LivePage> {
               ),
             ),
             Container(
-              height: 60,
-              padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-              child: kBlock(),
-            ),
+                height: 60,
+                padding: EdgeInsets.fromLTRB(15, 0, 18, 0),
+                child: Column(
+                  children: [
+                    kBlock(),
+                    kBlock(),
+                    kBlock(),
+                    kBlock(),
+                  ],
+                )),
           ],
         ),
       ),

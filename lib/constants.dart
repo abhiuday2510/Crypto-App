@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 Column kcoinNwatchlist(
@@ -37,15 +38,49 @@ Column kBlock() {
             Expanded(
                 flex: 14,
                 child: Container(
-                  height: 59,
-                  color: Colors.blue,
+                  height: 50,
+                  child: CircleAvatar(
+                    radius: 1,
+                    backgroundImage: AssetImage('images/bitcoin.png'),
+                  ),
                 )),
+            SizedBox(
+              width: 5,
+            ),
             Expanded(
-                flex: 25,
-                child: Container(
-                    height: 59,
-                    color: Colors.green,
-                    child: Column(children: [Text(''), Text('')]))),
+              flex: 25,
+              child: Container(
+                height: 59,
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 7,
+                    ),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Bitcoin',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600, fontSize: 18),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 3,
+                    ),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'BTC',
+                        style: TextStyle(
+                            color: Colors.grey.shade600,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
             Expanded(
                 flex: 42,
                 child: Container(
@@ -61,6 +96,9 @@ Column kBlock() {
           ],
         ),
       ),
+      SizedBox(
+        height: 10,
+      )
     ],
   );
 }
