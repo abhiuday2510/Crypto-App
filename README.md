@@ -1,4 +1,4 @@
-# my_crypto
+# Live Crypto 
 
 A new Flutter project.
 
