@@ -53,7 +53,7 @@ Column kBlock({String coinType, AssetImage logo, String abbriviation}) {
               width: 5,
             ),
             Expanded(
-              flex: 25,
+              flex: coinType.length > 9 ? 30 : 25,
               child: Container(
                 height: 59,
                 child: Column(
@@ -87,7 +87,7 @@ Column kBlock({String coinType, AssetImage logo, String abbriviation}) {
               ),
             ),
             Expanded(
-                flex: 42,
+                flex: coinType.length > 9 ? 37 : 42,
                 child: Container(
                   height: 59,
                   color: Colors.yellow,

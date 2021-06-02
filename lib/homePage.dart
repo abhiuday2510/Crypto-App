@@ -132,6 +132,7 @@ class _LivePageState extends State<LivePage> {
             //           // kBlock(),
             //         ])),
             ListView(
+              controller: ScrollController(initialScrollOffset: 10),
               padding: EdgeInsets.fromLTRB(15, 0, 18, 0),
               shrinkWrap: true,
               children: [
@@ -151,6 +152,18 @@ class _LivePageState extends State<LivePage> {
                     coinType: 'Doge Coin',
                     logo: AssetImage('images/dodegcoin.jpg'),
                     abbriviation: 'DOGe'),
+                kBlock(
+                    coinType: 'Bitcoin Cash',
+                    logo: AssetImage('images/bitcoin_cash.png'),
+                    abbriviation: 'BCH'),
+                kBlock(
+                    coinType: 'Binance Coin',
+                    logo: AssetImage('images/binance.png'),
+                    abbriviation: 'BNB'),
+                // kBlock(
+                //     coinType: 'Kusama',
+                //     logo: AssetImage('images/kusuma.png'),
+                //     abbriviation: 'KSM'),
               ],
             )
           ],
