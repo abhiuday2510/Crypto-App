@@ -5,8 +5,8 @@ class MyBlock {
     return Column(
       children: [
         Container(
-          height: 1,
-          color: Colors.grey,
+          height: 1.5,
+          color: Colors.grey.shade200,
         ),
         SizedBox(
           height: 5,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:my_crypto/constants.dart';
 import 'package:my_crypto/text_field.dart';
 import 'package:my_crypto/each_block.dart';
+import 'networking.dart';
 
 class LivePage extends StatefulWidget {
   @override
@@ -10,6 +11,13 @@ class LivePage extends StatefulWidget {
 }
 
 class _LivePageState extends State<LivePage> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    NetworkHelper().getCoindata();
+  }
+
   @override
   Widget build(BuildContext context) {
     //final isKeyboard=MediaQuery.of(context).viewInsets.bottom!=0;  checks if the keyboard is open or not
