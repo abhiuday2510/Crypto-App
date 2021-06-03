@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_crypto/constants.dart';
 import 'package:my_crypto/text_field.dart';
+import 'package:my_crypto/each_block.dart';
 
 class LivePage extends StatefulWidget {
   @override
@@ -131,40 +132,43 @@ class _LivePageState extends State<LivePage> {
             //           // kBlock(),
             //           // kBlock(),
             //         ])),
-            ListView(
-              controller: ScrollController(initialScrollOffset: 10),
-              padding: EdgeInsets.fromLTRB(15, 0, 18, 0),
-              shrinkWrap: true,
-              children: [
-                kBlock(
-                    coinType: 'Bitcoin',
-                    logo: AssetImage('images/bitcoin.png'),
-                    abbriviation: 'BTC'),
-                kBlock(
-                    coinType: 'Ethereum',
-                    logo: AssetImage('images/ethereum.png'),
-                    abbriviation: 'ETH'),
-                kBlock(
-                    coinType: 'Litecoin',
-                    logo: AssetImage('images/litecoin.gif'),
-                    abbriviation: 'LTC'),
-                kBlock(
-                    coinType: 'Doge Coin',
-                    logo: AssetImage('images/dodegcoin.jpg'),
-                    abbriviation: 'DOGe'),
-                kBlock(
-                    coinType: 'Bitcoin Cash',
-                    logo: AssetImage('images/bitcoin_cash.png'),
-                    abbriviation: 'BCH'),
-                kBlock(
-                    coinType: 'Binance Coin',
-                    logo: AssetImage('images/binance.png'),
-                    abbriviation: 'BNB'),
-                // kBlock(
-                //     coinType: 'Kusama',
-                //     logo: AssetImage('images/kusuma.png'),
-                //     abbriviation: 'KSM'),
-              ],
+            Expanded(
+              child: ListView(
+                scrollDirection: Axis.vertical,
+                // controller: ScrollController(initialScrollOffset: 80),
+                padding: EdgeInsets.fromLTRB(15, 0, 18, 0),
+                shrinkWrap: true,
+                children: [
+                  MyBlock().kBlock(
+                      coinType: 'Bitcoin',
+                      logo: AssetImage('images/bitcoin.png'),
+                      abbriviation: 'BTC'),
+                  MyBlock().kBlock(
+                      coinType: 'Ethereum',
+                      logo: AssetImage('images/ethereum.png'),
+                      abbriviation: 'ETH'),
+                  MyBlock().kBlock(
+                      coinType: 'Bitcoin Cash',
+                      logo: AssetImage('images/bitcoin_cash.png'),
+                      abbriviation: 'BCH'),
+                  MyBlock().kBlock(
+                      coinType: 'Litecoin',
+                      logo: AssetImage('images/litecoin.gif'),
+                      abbriviation: 'LTC'),
+                  MyBlock().kBlock(
+                      coinType: 'Doge Coin',
+                      logo: AssetImage('images/dodegcoin.jpg'),
+                      abbriviation: 'DOGe'),
+                  MyBlock().kBlock(
+                      coinType: 'Binance Coin',
+                      logo: AssetImage('images/binance.png'),
+                      abbriviation: 'BNB'),
+                  MyBlock().kBlock(
+                      coinType: 'Kusama',
+                      logo: AssetImage('images/kusuma.png'),
+                      abbriviation: 'KSM'),
+                ],
+              ),
             )
           ],
         ),
