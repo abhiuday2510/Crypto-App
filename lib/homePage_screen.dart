@@ -6,18 +6,14 @@ import 'package:my_crypto/each_block.dart';
 import 'networking.dart';
 
 class LivePage extends StatefulWidget {
+  LivePage({@required this.coinInfo});
+  final coinInfo;
+
   @override
   _LivePageState createState() => _LivePageState();
 }
 
 class _LivePageState extends State<LivePage> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    NetworkHelper().getCoindata();
-  }
-
   @override
   Widget build(BuildContext context) {
     //final isKeyboard=MediaQuery.of(context).viewInsets.bottom!=0;  checks if the keyboard is open or not

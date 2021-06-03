@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:my_crypto/homePage_screen.dart';
+import 'package:my_crypto/networking.dart';
+import 'networking.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -7,7 +11,28 @@ class LoadingScreen extends StatefulWidget {
 
 class _LoadingScreenState extends State<LoadingScreen> {
   @override
+  void initState() {
+    super.initState();
+    NetworkHelper().getCoindata();
+  }
+
+  void getCoinInfo() async {
+    var coinInfo = await NetworkHelper().getCoindata();
+
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return LivePage(coinInfo: coinInfo);
+    }));
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Center(
+        child: SpinKitDoubleBounce(
+          color: Colors.white,
+          size: 100,
+        ),
+      ),
+    );
   }
 }
