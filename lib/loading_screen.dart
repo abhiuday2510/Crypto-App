@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_crypto/homePage_screen.dart';
+import 'package:my_crypto/livePage_screen.dart';
 import 'package:my_crypto/networking.dart';
 import 'networking.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -13,7 +13,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState() {
     super.initState();
-    NetworkHelper().getCoindata();
+    getCoinInfo();
   }
 
   void getCoinInfo() async {
@@ -29,7 +29,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     return Scaffold(
       body: Center(
         child: SpinKitDoubleBounce(
-          color: Colors.white,
+          color: Colors.black,
           size: 100,
         ),
       ),

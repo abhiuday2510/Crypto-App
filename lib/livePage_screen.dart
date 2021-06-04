@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:my_crypto/constants.dart';
 import 'package:my_crypto/text_field.dart';
 import 'package:my_crypto/each_block.dart';
-import 'networking.dart';
 
 class LivePage extends StatefulWidget {
   LivePage({@required this.coinInfo});
@@ -14,8 +13,35 @@ class LivePage extends StatefulWidget {
 }
 
 class _LivePageState extends State<LivePage> {
+  String change, price;
+  NetworkImage logo;
+  String name;
+
+  @override
+  void initState() {
+    super.initState();
+    updateUI(widget.coinInfo);
+  }
+
+  void updateUI(dynamic coinData) {
+    setState(() {
+      if (coinData == null) {
+        name = '??';
+        change = '??';
+        price = '??';
+        logo = null;
+        return;
+      }
+      name = coinData[0]['name'];
+      //change = coinData[0]['1D']['price_change_pct'].toString();
+      price = coinData[0]['price'].toString();
+      logo = NetworkImage('${coinData[0]['logo_url']}');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    print(widget.coinInfo);
     //final isKeyboard=MediaQuery.of(context).viewInsets.bottom!=0;  checks if the keyboard is open or not
 
     return Scaffold(
