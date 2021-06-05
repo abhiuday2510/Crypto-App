@@ -13,6 +13,7 @@ class NetworkHelper {
         'key': apiKey,
         'ids': 'BTC',
         'convert': 'USD',
+        'interval': '1d'
       },
     );
     http.Response response = await http.get(url);

@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'constants.dart';
 
 class MyBlock {
-  Column kBlock({String coinType, AssetImage logo, String abbriviation}) {
+  Column kBlock(
+      {String coinType,
+      AssetImage logo,
+      String abbriviation,
+      String price,
+      String change}) {
     return Column(
       children: [
         Container(
@@ -71,8 +77,9 @@ class MyBlock {
               Expanded(
                   flex: 19,
                   child: Container(
-                    height: 59,
-                    color: Colors.orange,
+                    height: 35,
+                    //color: Colors.orange,
+                    child: kchange(),
                   )),
             ],
           ),
