@@ -56,14 +56,12 @@ BottomNavigationBar kbottomBar() {
   );
 }
 
-Card kchange() {
+Card kchange(String chng) {
   return Card(
     elevation: 3,
     color: Colors.green.shade50,
     shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(5))),
-    //child: Text(),
+    child: Text(chng),
   );
 }
-
-List<String> kcoinList = ['BTC', 'ETH', 'BCH', 'LTC', 'DOGE', 'BNB', 'KSM'];

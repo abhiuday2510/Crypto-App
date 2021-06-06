@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_crypto/livePage_screen.dart';
-import 'package:my_crypto/networking.dart';
-import 'networking.dart';
+import 'each_block.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class LoadingScreen extends StatefulWidget {
@@ -16,11 +15,19 @@ class _LoadingScreenState extends State<LoadingScreen> {
     getCoinInfo();
   }
 
+  List<Column> allblocks = [];
+
   void getCoinInfo() async {
-    var coinInfo = await NetworkHelper().getCoindata();
+    allblocks.add(await MyBlock(coinAbb: 'BTC').kBlock());
+    allblocks.add(await MyBlock(coinAbb: 'ETH').kBlock());
+    allblocks.add(await MyBlock(coinAbb: 'BCH').kBlock());
+    allblocks.add(await MyBlock(coinAbb: 'LTC').kBlock());
+    allblocks.add(await MyBlock(coinAbb: 'DOGE').kBlock());
+    allblocks.add(await MyBlock(coinAbb: 'BNB').kBlock());
+    allblocks.add(await MyBlock(coinAbb: 'KSM').kBlock());
 
     Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return LivePage(coinInfo: coinInfo);
+      return LivePage(coinInfo: allblocks);
     }));
   }
 

@@ -1,13 +1,25 @@
 import 'package:flutter/material.dart';
 import 'constants.dart';
+import 'networking.dart';
 
 class MyBlock {
-  Column kBlock(
-      {String coinType,
-      AssetImage logo,
-      String abbriviation,
-      String price,
-      String change}) {
+  MyBlock({this.coinAbb});
+  String coinAbb;
+
+  var coinData;
+
+  String coinType;
+  NetworkImage logo;
+  String price;
+  String change;
+
+  Future<Column> kBlock() async {
+    coinData = await NetworkHelper().getCoindata(coinAbb);
+    coinType = coinData[0]['name'];
+    change = coinData[0]['1d']['price_change_pct'].toString();
+    price = coinData[0]['price'].toString();
+    logo = NetworkImage('${coinData[0]['logo_url']}');
+
     return Column(
       children: [
         Container(
@@ -57,7 +69,7 @@ class MyBlock {
                       Container(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          abbriviation,
+                          coinAbb,
                           style: TextStyle(
                               color: Colors.grey.shade600,
                               fontSize: 15,
@@ -73,13 +85,14 @@ class MyBlock {
                   child: Container(
                     height: 59,
                     color: Colors.yellow,
+                    child: Text(price),
                   )),
               Expanded(
                   flex: 19,
                   child: Container(
                     height: 35,
                     //color: Colors.orange,
-                    child: kchange(),
+                    child: kchange(change),
                   )),
             ],
           ),
