@@ -18,17 +18,25 @@ class _LoadingScreenState extends State<LoadingScreen> {
   List<Column> allblocks = [];
 
   void getCoinInfo() async {
-    allblocks.add(await MyBlock(coinAbb: 'BTC').kBlock());
-    allblocks.add(await MyBlock(coinAbb: 'ETH').kBlock());
-    allblocks.add(await MyBlock(coinAbb: 'BCH').kBlock());
-    allblocks.add(await MyBlock(coinAbb: 'LTC').kBlock());
-    allblocks.add(await MyBlock(coinAbb: 'DOGE').kBlock());
-    allblocks.add(await MyBlock(coinAbb: 'BNB').kBlock());
-    allblocks.add(await MyBlock(coinAbb: 'KSM').kBlock());
+    try {
+      allblocks.add(await MyBlock(coinAbb: 'BTC').kBlock('images/bitcoin.png'));
+      allblocks
+          .add(await MyBlock(coinAbb: 'ETH').kBlock('images/ethereum.png'));
+      allblocks
+          .add(await MyBlock(coinAbb: 'BCH').kBlock('images/bitcoin_cash.png'));
+      allblocks
+          .add(await MyBlock(coinAbb: 'LTC').kBlock('images/litecoin.gif'));
+      allblocks
+          .add(await MyBlock(coinAbb: 'DOGE').kBlock('images/dodegcoin.jpg'));
+      allblocks.add(await MyBlock(coinAbb: 'BNB').kBlock('images/binance.png'));
+      allblocks.add(await MyBlock(coinAbb: 'KSM').kBlock('images/kusuma.png'));
 
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return LivePage(coinInfo: allblocks);
-    }));
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return LivePage(coinInfo: allblocks);
+      }));
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override

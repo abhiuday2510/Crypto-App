@@ -7,18 +7,17 @@ class MyBlock {
   String coinAbb;
 
   var coinData;
-
+  AssetImage logo;
   String coinType;
-  NetworkImage logo;
   String price;
   String change;
 
-  Future<Column> kBlock() async {
+  Future<Column> kBlock(String img) async {
     coinData = await NetworkHelper().getCoindata(coinAbb);
     coinType = coinData[0]['name'];
     change = coinData[0]['1d']['price_change_pct'].toString();
     price = coinData[0]['price'].toString();
-    logo = NetworkImage('${coinData[0]['logo_url']}');
+    logo = AssetImage(img);
 
     return Column(
       children: [
