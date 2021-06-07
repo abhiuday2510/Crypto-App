@@ -46,7 +46,7 @@ class MyBlock {
                 width: 5,
               ),
               Expanded(
-                flex: coinType.length > 9 ? 30 : 25,
+                flex: 37,
                 child: Container(
                   height: 59,
                   child: Column(
@@ -80,18 +80,27 @@ class MyBlock {
                 ),
               ),
               Expanded(
-                  flex: coinType.length > 9 ? 37 : 42,
+                  flex: 30,
                   child: Container(
-                    height: 59,
-                    color: Colors.yellow,
-                    child: Text(price),
+                    alignment: Alignment.centerRight,
+                    height: 55,
+                    child: Text(
+                      '₹${double.parse(price).toStringAsFixed(1)}',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 19,
+                          color: Colors.black.withAlpha(190)),
+                    ),
                   )),
+              SizedBox(
+                width: 7,
+              ),
               Expanded(
-                  flex: 19,
+                  flex: 23,
                   child: Container(
-                    height: 35,
+                    height: 38,
                     //color: Colors.orange,
-                    child: kchange(change),
+                    child: kchange(double.parse(change)),
                   )),
             ],
           ),

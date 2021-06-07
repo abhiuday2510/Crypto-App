@@ -26,8 +26,8 @@ class _LoadingScreenState extends State<LoadingScreen> {
           .add(await MyBlock(coinAbb: 'BCH').kBlock('images/bitcoin_cash.png'));
       allblocks
           .add(await MyBlock(coinAbb: 'LTC').kBlock('images/litecoin.gif'));
-      allblocks
-          .add(await MyBlock(coinAbb: 'DOGE').kBlock('images/dodegcoin.jpg'));
+      allblocks.add(
+          await MyBlock(coinAbb: 'DOGE').kBlock('images/dodegcoin.jpg')); //
       allblocks.add(await MyBlock(coinAbb: 'BNB').kBlock('images/binance.png'));
       allblocks.add(await MyBlock(coinAbb: 'KSM').kBlock('images/kusuma.png'));
 

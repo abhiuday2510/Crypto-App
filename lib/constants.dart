@@ -56,12 +56,21 @@ BottomNavigationBar kbottomBar() {
   );
 }
 
-Card kchange(String chng) {
+Card kchange(double chng) {
+  String sign = chng > 0 ? '+' : '';
   return Card(
     elevation: 3,
-    color: Colors.green.shade50,
+    color: chng < 0 ? Colors.red.shade50 : Colors.green.shade50,
     shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(5))),
-    child: Text(chng),
+    child: Center(
+      child: Text(
+        '$sign${chng.toStringAsFixed(3)}%',
+        style: TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 16,
+            color: chng > 0 ? Colors.green.shade600 : Colors.red.shade600),
+      ),
+    ),
   );
 }

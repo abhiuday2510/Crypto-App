@@ -13,7 +13,7 @@ class NetworkHelper {
       queryParameters: {
         'key': apiKey,
         'ids': abb,
-        'convert': 'USD',
+        'convert': 'INR',
         'interval': '1d'
       },
     );
